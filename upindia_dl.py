@@ -17,7 +17,7 @@ def get_direct_download_link(url):
   url_parts = urllib.parse.urlparse(url)
   req = session.get(url)
   page_html = req.text
-  itemlink = re.findall(r'class="download_box_new".*itemlink="([^">]+)"', page_html)
+  itemlink = re.findall(r'class="download_box_new[^"]*".*itemlink="([^">]+)"', page_html)
   if not itemlink:
     return "File does not exist!"
   
